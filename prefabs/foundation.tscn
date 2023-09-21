@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dxfneucvluem5"]
+
+[ext_resource type="Script" path="res://scripts/Foundation.cs" id="1_etmkg"]
+[ext_resource type="Texture2D" uid="uid://cinnoyeds7qc5" path="res://textures/55.tres" id="2_ptl6f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2451f"]
+size = Vector2(5, 5)
+
+[node name="foundation" type="Sprite2D"]
+position = Vector2(296.5, 64)
+texture = ExtResource("2_ptl6f")
+script = ExtResource("1_etmkg")
+
+[node name="interactArea" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="cardShape" type="CollisionShape2D" parent="interactArea"]
+shape = SubResource("RectangleShape2D_2451f")

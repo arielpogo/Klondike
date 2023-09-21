@@ -1,0 +1,68 @@
+[gd_scene load_steps=5 format=3 uid="uid://6xbvef7p6g7n"]
+
+[ext_resource type="FontFile" uid="uid://c4ij2580iuutk" path="res://fonts/Pixellari.ttf" id="1_tjvcu"]
+[ext_resource type="FontFile" uid="uid://cjww5sxeun35f" path="res://fonts/pixelmix.ttf" id="2_gafcm"]
+[ext_resource type="Script" path="res://scripts/BackButton.cs" id="3_82nst"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qluyv"]
+bg_color = Color(0.321569, 0.156863, 0, 1)
+
+[node name="instructionsControl" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 640.0
+offset_bottom = 480.0
+
+[node name="bg" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 480.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_qluyv")
+
+[node name="title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 128.0
+offset_right = 512.0
+offset_bottom = 56.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_tjvcu")
+theme_override_font_sizes/font_size = 48
+text = "Instructions"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="instructions" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 64.0
+offset_right = 608.0
+offset_bottom = 448.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("1_tjvcu")
+theme_override_font_sizes/normal_font_size = 32
+text = "	Overview: In Klondike, there is the table, stock, waste, and four foundations. The object of the game is to order the cards in ascending order (Aces to Kings) by suit on the foundations.
+	Layout: The table consists of seven stacks of cards, increasing by one from one card on the left, to seven on the right. Each stack has their topmost card face up, the rest are face down. When the topmost card is moved, then the next card in the stack is flipped. The rest of the cards are in the stock, stacked face down. The waste is explained below.
+	Play: You play by arranging the cards on the table, in descending order, alternating colors. Cards are placed at the top of the stack. This means if the top of a stack is a black seven, you can only place a red six on it. You can split face up stacks and place them on others, but the ordering rules must be maintained. You progress by flipping through the stock. You take the top card from the stock and place it beside in a pile, called the waste. If you can place it on your table, or on the foundations, you may. Otherwise, you can continue flipping through the stock. Once the stock is exhausted, you may take the waste and reform the stock. Continue until the objective is complete."
+
+[node name="backButton" type="Button" parent="."]
+layout_mode = 0
+offset_right = 56.0
+offset_bottom = 56.0
+theme_override_fonts/font = ExtResource("2_gafcm")
+theme_override_font_sizes/font_size = 16
+flat = true
+script = ExtResource("3_82nst")
+
+[node name="backButtonLabel" type="Label" parent="backButton"]
+texture_filter = 1
+layout_mode = 0
+offset_right = 56.0
+offset_bottom = 56.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_tjvcu")
+theme_override_font_sizes/font_size = 16
+text = "Back"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="backButton" to="backButton" method="_on_pressed"]

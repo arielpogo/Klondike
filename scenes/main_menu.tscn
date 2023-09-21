@@ -1,0 +1,151 @@
+[gd_scene load_steps=5 format=3 uid="uid://binre0b6nd7xg"]
+
+[ext_resource type="Script" path="res://scripts/MainMenu.cs" id="1_ldkmb"]
+[ext_resource type="FontFile" uid="uid://cjww5sxeun35f" path="res://fonts/pixelmix.ttf" id="2_3sx1g"]
+[ext_resource type="FontFile" uid="uid://c4ij2580iuutk" path="res://fonts/Pixellari.ttf" id="3_h5k45"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_njv6k"]
+bg_color = Color(0, 0.423529, 0, 1)
+
+[node name="mainMenu" type="Node2D"]
+
+[node name="mainMenuControl" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_ldkmb")
+
+[node name="bg" type="Panel" parent="mainMenuControl"]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 480.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_njv6k")
+
+[node name="version" type="Label" parent="mainMenuControl"]
+visible = false
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 360.0
+offset_top = 448.0
+offset_right = 600.0
+offset_bottom = 464.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = -2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("2_3sx1g")
+theme_override_font_sizes/font_size = 24
+text = "Beta 2"
+horizontal_alignment = 2
+autowrap_mode = 2
+language = "en"
+
+[node name="title" type="RichTextLabel" parent="mainMenuControl"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 56.0
+offset_right = 600.0
+offset_bottom = 216.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = -2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/normal_font = ExtResource("2_3sx1g")
+theme_override_font_sizes/normal_font_size = 48
+bbcode_enabled = true
+text = "[center]Tyler Town
+[color=red]K[/color][color=orange]l[/color][color=yellow]o[/color][color=green]n[/color][color=blue]d[/color][color=darkblue]i[/color][color=purple]k[/color][color=indigo]e[/color]
+[color=gold]Deluxe[/color][/center]"
+scroll_active = false
+language = "en"
+
+[node name="play" type="Button" parent="mainMenuControl"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 196.0
+offset_top = 220.0
+offset_right = 412.0
+offset_bottom = 276.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_h5k45")
+theme_override_font_sizes/font_size = 28
+flat = true
+
+[node name="Label" type="Label" parent="mainMenuControl/play"]
+layout_mode = 0
+offset_right = 216.0
+offset_bottom = 56.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = -1
+theme_override_constants/shadow_offset_y = 1
+theme_override_fonts/font = ExtResource("3_h5k45")
+theme_override_font_sizes/font_size = 32
+text = "Play"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="instructions" type="Button" parent="mainMenuControl"]
+layout_mode = 0
+offset_left = 216.0
+offset_top = 304.0
+offset_right = 432.0
+offset_bottom = 360.0
+theme_override_fonts/font = ExtResource("3_h5k45")
+theme_override_font_sizes/font_size = 28
+flat = true
+
+[node name="Label" type="Label" parent="mainMenuControl/instructions"]
+layout_mode = 0
+offset_right = 216.0
+offset_bottom = 56.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = -1
+theme_override_constants/shadow_offset_y = 1
+theme_override_fonts/font = ExtResource("3_h5k45")
+theme_override_font_sizes/font_size = 32
+text = "Instructions"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="credits" type="Button" parent="mainMenuControl"]
+layout_mode = 0
+offset_left = 216.0
+offset_top = 360.0
+offset_right = 432.0
+offset_bottom = 416.0
+theme_override_fonts/font = ExtResource("3_h5k45")
+theme_override_font_sizes/font_size = 28
+flat = true
+
+[node name="Label" type="Label" parent="mainMenuControl/credits"]
+layout_mode = 0
+offset_right = 216.0
+offset_bottom = 56.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = -1
+theme_override_constants/shadow_offset_y = 1
+theme_override_fonts/font = ExtResource("3_h5k45")
+theme_override_font_sizes/font_size = 32
+text = "Credits"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="mainMenuControl/play" to="mainMenuControl" method="_on_play_pressed"]
+[connection signal="pressed" from="mainMenuControl/instructions" to="mainMenuControl" method="_on_instructions_pressed"]
+[connection signal="pressed" from="mainMenuControl/credits" to="mainMenuControl" method="_on_credits_pressed"]

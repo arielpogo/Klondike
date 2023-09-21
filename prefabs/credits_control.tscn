@@ -1,0 +1,77 @@
+[gd_scene load_steps=5 format=3 uid="uid://cmgfwb5bw4vl3"]
+
+[ext_resource type="FontFile" uid="uid://c4ij2580iuutk" path="res://fonts/Pixellari.ttf" id="1_vj15n"]
+[ext_resource type="FontFile" uid="uid://cjww5sxeun35f" path="res://fonts/pixelmix.ttf" id="2_ob5g7"]
+[ext_resource type="Script" path="res://scripts/BackButton.cs" id="3_6pj5w"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qlv3i"]
+bg_color = Color(0, 0, 0.670588, 1)
+
+[node name="creditsControl" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="bg" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 480.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_qlv3i")
+
+[node name="title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 128.0
+offset_right = 512.0
+offset_bottom = 56.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_vj15n")
+theme_override_font_sizes/font_size = 48
+text = "Credits"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="instructions" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 64.0
+offset_right = 608.0
+offset_bottom = 448.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("1_vj15n")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[center]Created By Ariel Pogorzelski
+Art By Microsoft
+
+-Font Credit-
+[font=res://fonts/Pixellari.ttf]Pixellari by Zacchary Dempsey-Plante
+[/font]
+[font_size=32][font=res://fonts/pixelmix.ttf]pixelmix by Andrew Tyler
+www.AndrewTyler.net
+font@andrewtyler.net[/font][/font_size]"
+
+[node name="backButton" type="Button" parent="."]
+layout_mode = 0
+offset_right = 56.0
+offset_bottom = 56.0
+theme_override_fonts/font = ExtResource("2_ob5g7")
+theme_override_font_sizes/font_size = 16
+flat = true
+script = ExtResource("3_6pj5w")
+
+[node name="backButtonLabel" type="Label" parent="backButton"]
+texture_filter = 1
+layout_mode = 0
+offset_right = 56.0
+offset_bottom = 56.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_vj15n")
+theme_override_font_sizes/font_size = 16
+text = "Back"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="backButton" to="backButton" method="_on_pressed"]

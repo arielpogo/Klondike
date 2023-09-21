@@ -1,0 +1,103 @@
+[gd_scene load_steps=9 format=3 uid="uid://j7twgwnodovn"]
+
+[ext_resource type="Script" path="res://scripts/Game.cs" id="1_me7bm"]
+[ext_resource type="PackedScene" uid="uid://5wf7h862pnep" path="res://prefabs/pile.tscn" id="2_8lxw3"]
+[ext_resource type="FontFile" uid="uid://cjww5sxeun35f" path="res://fonts/pixelmix.ttf" id="2_pehxe"]
+[ext_resource type="PackedScene" uid="uid://dxfneucvluem5" path="res://prefabs/foundation.tscn" id="3_ei4ot"]
+[ext_resource type="Script" path="res://scripts/Waste.cs" id="6_sbvgd"]
+[ext_resource type="Texture2D" uid="uid://nl8rm6gd0oo8" path="res://textures/54.tres" id="6_wp8ni"]
+[ext_resource type="Script" path="res://scripts/Stock.cs" id="7_xupg1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_krxqx"]
+bg_color = Color(0, 0.423529, 0, 1)
+
+[node name="game" type="Node2D"]
+script = ExtResource("1_me7bm")
+
+[node name="Panel" type="Panel" parent="."]
+process_mode = 4
+offset_right = 640.0
+offset_bottom = 480.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_krxqx")
+
+[node name="pile0" parent="." instance=ExtResource("2_8lxw3")]
+
+[node name="pile1" parent="." instance=ExtResource("2_8lxw3")]
+position = Vector2(142.5, 240)
+
+[node name="pile2" parent="." instance=ExtResource("2_8lxw3")]
+position = Vector2(231.5, 240)
+
+[node name="pile3" parent="." instance=ExtResource("2_8lxw3")]
+position = Vector2(320.5, 240)
+
+[node name="pile4" parent="." instance=ExtResource("2_8lxw3")]
+position = Vector2(409.5, 240)
+
+[node name="pile5" parent="." instance=ExtResource("2_8lxw3")]
+position = Vector2(498.5, 240)
+
+[node name="pile6" parent="." instance=ExtResource("2_8lxw3")]
+position = Vector2(587.5, 240)
+
+[node name="foundation0" parent="." instance=ExtResource("3_ei4ot")]
+
+[node name="foundation1" parent="." instance=ExtResource("3_ei4ot")]
+position = Vector2(384.5, 64)
+
+[node name="foundation2" parent="." instance=ExtResource("3_ei4ot")]
+position = Vector2(476.5, 64)
+
+[node name="foundation3" parent="." instance=ExtResource("3_ei4ot")]
+position = Vector2(572.5, 64)
+
+[node name="waste" type="Sprite2D" parent="."]
+position = Vector2(142.5, 64)
+texture = ExtResource("6_wp8ni")
+script = ExtResource("6_sbvgd")
+
+[node name="stock" type="TextureButton" parent="."]
+offset_left = 8.0
+offset_top = 16.0
+offset_right = 79.0
+offset_bottom = 112.0
+script = ExtResource("7_xupg1")
+
+[node name="stats" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 8.0
+offset_top = 456.0
+offset_right = 640.0
+offset_bottom = 480.0
+mouse_filter = 2
+
+[node name="timer" type="Label" parent="stats"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_pehxe")
+theme_override_font_sizes/font_size = 16
+text = "0:00"
+
+[node name="score" type="Label" parent="stats"]
+layout_mode = 0
+offset_left = 384.0
+offset_right = 432.0
+offset_bottom = 23.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_pehxe")
+theme_override_font_sizes/font_size = 16
+text = "0"
+
+[node name="score_label" type="Label" parent="stats"]
+layout_mode = 0
+offset_left = 312.0
+offset_right = 360.0
+offset_bottom = 23.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_pehxe")
+theme_override_font_sizes/font_size = 16
+text = "Score:"

@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=3 uid="uid://bsidhhei50sxk"]
+
+[ext_resource type="Script" path="res://scripts/Winscreen.cs" id="1_sl0i1"]
+[ext_resource type="FontFile" uid="uid://c4ij2580iuutk" path="res://fonts/Pixellari.ttf" id="2_ojwpu"]
+[ext_resource type="FontFile" uid="uid://cjww5sxeun35f" path="res://fonts/pixelmix.ttf" id="3_tc0bs"]
+
+[node name="Winscreen" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 8.0
+offset_top = 456.0
+offset_right = 48.0
+offset_bottom = 496.0
+script = ExtResource("1_sl0i1")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = -8.0
+offset_top = -456.0
+offset_right = 632.0
+offset_bottom = 24.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = -8.0
+offset_top = -456.0
+offset_right = 632.0
+offset_bottom = 24.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/normal_font = ExtResource("2_ojwpu")
+bbcode_enabled = true
+text = "[center][font s=128][color=gold]YOU'RE
+WINNER!"
+
+[node name="return" type="Button" parent="."]
+layout_mode = 0
+offset_left = 192.0
+offset_top = -120.0
+offset_right = 432.0
+offset_bottom = -89.0
+theme_override_fonts/font = ExtResource("3_tc0bs")
+text = "Return to main menu"
+
+[connection signal="pressed" from="return" to="." method="OnReturnPressed"]

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://5wf7h862pnep"]
+
+[ext_resource type="Script" path="res://scripts/Pile.cs" id="1_fqhig"]
+[ext_resource type="Texture2D" uid="uid://cinnoyeds7qc5" path="res://textures/55.tres" id="2_v0ky3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kf0os"]
+size = Vector2(5, 288)
+
+[node name="pile" type="Sprite2D"]
+position = Vector2(53.5, 240)
+texture = ExtResource("2_v0ky3")
+script = ExtResource("1_fqhig")
+
+[node name="interactArea" type="Area2D" parent="."]
+position = Vector2(0, 96)
+collision_layer = 2
+collision_mask = 2
+
+[node name="cardShape" type="CollisionShape2D" parent="interactArea"]
+shape = SubResource("RectangleShape2D_kf0os")
